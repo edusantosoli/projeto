@@ -7,13 +7,14 @@
 
 	<?php
 
-		$nomecompleto = "Eduardo Oliveira Santos"
-		$anonasc = "1981"
+		
+		$nomecompleto = "Eduardo Oliveira Santos";
+		$anonasc = "1981";
 		$qtdfilhos = "2";
 		$estcivil = "casado";
 		$nomeconjunge = "Izabela Siqueira";
 
-		echo $nomecompleto; echo $anonasc; echo $estcivil;
+		echo $nomecompleto; echo " "; echo $anonasc;" "; echo $estcivil;
 		?>
 
 
