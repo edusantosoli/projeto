@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Tipo de Dados</title>
-</head>
-<body>
+    <head>
+        <title>Tipo de Dados</title>
+    </head>
+    <body>
 
-	<?php
+        <?php
+        $nomeCompleto = "Eduardo Oliveira Santos";
+        $anoNasc = "1981";
+        $qtdFilhos = "2";
+        $estCivil = "casado";
+        $nomeConjunge = "Izabela Siqueira";
+        ?>
 
-		
-		$nomecompleto = "Eduardo Oliveira Santos";
-		$anonasc = "1981";
-		$qtdfilhos = "2";
-		$estcivil = "casado";
-		$nomeconjunge = "Izabela Siqueira";
-
-		echo $nomecompleto; echo " "; echo $anonasc;" "; echo $estcivil;
-		?>
-
-
-</body>
+        <?php echo "Nome: " . $nomeCompleto; ?>
+        <br>
+        <?php echo "Ano Nascimento: " . $anoNasc; ?>
+        <br>    
+        <?php echo "Qtd Filhos: " . $qtdFilhos; ?>
+        <br>   
+        <?php echo "Estado Civil: " . $estCivil; ?>
+        <br>   
+        <?php echo "Nome Conjunge: " . $nomeConjunge; ?>
+        <br>   
+    </body>
 </html>
 
 
