@@ -1,0 +1,102 @@
+<HTML>
+  <HEAD>
+    <TITLE>Capítulo XML e DOM</TITLE>
+    <SCRIPT language='JavaScript'>
+    var livros;
+    
+    function xmlLoader(url)
+    {
+      if(window.XMLHttpRequest)
+      {
+        var Loader = new XMLHttpRequest();
+        Loader.open("GET", url ,false);
+        Loader.send(null);
+        return Loader.responseXML;
+      }
+      else if(window.ActiveXObject)
+      {
+        var Loader = new ActiveXObject("Msxml2.DOMDocument.3.0");
+        Loader.async = false;
+        Loader.load(url);
+        return Loader;
+      }
+    } 
+    
+    function mountTable(livros)
+    {
+      // Imprime os dados
+      buffer = "<TABLE border=1>";
+      buffer += "<TR>";
+      buffer += "<TD align=center><B>Tìtulo</B></TD>";
+      buffer += "<TD align=center><B>Subtítulo</B></TD>";
+      buffer += "<TD align=center><B>Categoria</B></TD>";
+      buffer += "<TD align=center><B>Autor</B></TD>";
+      buffer += "<TD align=center><B>ISBN</B></TD>";
+      buffer += "</TR>";
+
+      for(b=0; b<livros.length; b++)
+      {
+        buffer += "<TR>";
+        buffer += "<TD>"+ livros[b].titulo +"</TD>";
+        buffer += "<TD>"+ livros[b].subtitulo +"</TD>";
+        buffer += "<TD>"+ livros[b].categoria +"</TD>";
+        buffer += "<TD>"+ livros[b].autor +"</TD>";
+        buffer += "<TD>"+ livros[b].isbn +"</TD>";
+        buffer += "</TR>";
+      }
+      
+      buffer += "</TABLE>";
+      document.write(buffer);
+    }
+    
+    function Livro()
+    {
+      var categoria = "";
+      var titulo = "";
+      var subtitulo = "";
+      var autor = "";
+      var isbn = "";
+    }
+    
+    function xmlParserLivrosSimplificado(xmlNode)
+    {
+      livros = new Array();
+      var contador = 0;
+      
+      // Captura o Root Element
+      xmlRootNode = xmlNode.getElementsByTagName('LISTADELIVROS')[0];
+      
+      // Captura o array de filhos do Root Element
+      xmlListaLivros = xmlRootNode.getElementsByTagName('LIVRO');
+
+      // Navega por casa tag 'pessoa'
+      for(i=0; i<xmlListaLivros.length; i++)
+      {
+        // Cria o objeto pessoa
+        livros[contador] = new Livro();
+        
+        // Acessa os dados (nós filhos) de uma pessoa
+        xmlLivroNode = xmlListaLivros[i];
+        livros[contador].titulo = xmlLivroNode.getElementsByTagName('TITULO')[0].firstChild.nodeValue;
+        livros[contador].subtitulo = xmlLivroNode.getElementsByTagName('SUBTITULO')[0].firstChild.nodeValue;
+        livros[contador].autor = xmlLivroNode.getElementsByTagName('AUTOR')[0].firstChild.nodeValue;
+        livros[contador].isbn = xmlLivroNode.getElementsByTagName('ISBN')[0].firstChild.nodeValue;
+        
+        // Acessa os atributos
+        livros[contador].categoria = xmlLivroNode.attributes['categoria'].nodeValue;
+        
+        // Avança uma posição no array
+        contador++;
+      }
+
+      mountTable(livros);
+    }
+
+    xml = xmlLoader("books.xml");
+    xmlParserLivrosSimplificado(xml);
+    </SCRIPT>
+  </HEAD>
+  <BODY>
+
+  </BODY>
+</HTML>

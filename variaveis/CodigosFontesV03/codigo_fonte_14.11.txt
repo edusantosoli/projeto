@@ -1,0 +1,17 @@
+    /* CÓDIGO DE VISUALIZAR OS RESULTADOS */
+    
+    // Seleciona a enquete mais recente
+    $sql = "SELECT * FROM ENQUETES ORDER BY ID DESC LIMIT 1";
+    $result = mysqli_query($link, $sql);
+    if($tbl = mysqli_fetch_array($result))
+    {
+      echo "<B>".$tbl["ENQUETE"]."</B>";
+      
+      // Navega pelas respostas, exibindo em ordem de votos
+      $sql = "SELECT * FROM RESPOSTAS WHERE ENQUETES_ID = ".$tbl["ID"]." ORDER BY VOTOS DESC";
+      $result = mysqli_query($link, $sql);
+      while($tbl = mysqli_fetch_array($result))
+      {
+        echo "<BR>".$tbl["RESPOSTA"]." (".$tbl["VOTOS"]." votos)";
+      }
+    }

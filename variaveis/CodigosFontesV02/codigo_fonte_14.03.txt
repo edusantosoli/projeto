@@ -1,0 +1,23 @@
+    /* CÓDIGO DE ADICIONAR PRODUTO AO CARRINHO - SESSÃO */
+    session_start();
+    $productId = $_REQUEST["id"];
+  
+    // Cria o carrinho, caso não tenha sido criado ainda
+    if(!isset($_SESSION["CARRINHO"]))
+    {
+      $_SESSION["CARRINHO"] = array();
+    }
+    
+    // Verifica se já existe alguma unidade do produto no carrinho
+    if(isset($_SESSION["CARRINHO"][$productId]))
+    {
+      // Se já existe, incrementa sua quantidade
+      $_SESSION["CARRINHO"][$productId]++;
+    }
+    else
+    {
+      // Se não existe, adiciona a primeira unidade ao carrinho
+      $_SESSION["CARRINHO"][$productId] = 1;
+    }
+    
+    header("location: ?action=visualizar");

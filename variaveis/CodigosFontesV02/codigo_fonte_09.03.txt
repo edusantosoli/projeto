@@ -1,0 +1,6 @@
+      var tamanho_nome = document.forms["meuForm"].CAMPO_NOME.value.length;
+      if(tamanho_nome < 5 || tamanho_nome > 64)
+      {
+        alert("O campo 'Nome' deve ter entre 5 e 64 caracteres.");
+        return FALSE;
+      }

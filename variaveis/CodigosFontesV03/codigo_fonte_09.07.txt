@@ -1,0 +1,6 @@
+      var opcao_curso = document.forms["meuForm"].CAMPO_CURSO.selectedIndex;
+      if(opcao_curso == 0)
+      {
+        alert("O campo 'Curso' deve ser preenchido.");
+        return FALSE;
+      }

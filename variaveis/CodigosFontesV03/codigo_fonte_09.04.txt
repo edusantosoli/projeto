@@ -1,0 +1,6 @@
+      var idade = document.forms["meuForm"].CAMPO_IDADE.value;
+      if(isNaN(idade) || idade < 4 || idade > 120)
+      {
+        alert("O campo 'Idade' deve ter preenchido corretamente.");
+        return FALSE;
+      }

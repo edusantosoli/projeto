@@ -1,0 +1,6 @@
+    $conhecimentos = $_POST["CAMPO_CONHECIMENTOS"];
+    if(sizeof($conhecimentos) != 2)
+    {
+      echo("É necessário marcar 2 conhecimentos.");
+      $formValid = FALSE;
+    }

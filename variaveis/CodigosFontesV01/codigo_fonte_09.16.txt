@@ -1,0 +1,5 @@
+    if($formValid)
+    {
+      echo "Formulário validado com sucesso!";
+      exit();
+    }

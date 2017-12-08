@@ -1,0 +1,63 @@
+<HTML>
+  <HEAD>
+    <TITLE>Capítulo XML e DOM</TITLE>
+  </HEAD>
+  <BODY>
+
+    <!-- Carregando o XML -->
+    <XML src="books.xml" id="xmlLivros" async="FALSE"></XML>
+    
+    
+    <!-- Exibindo e navegando pelos registros por formulário -->
+    <B>Formulário que navega pelos registros:</B><BR>
+    Título:
+    <INPUT type=text name='teste' datasrc="#xmlLivros" datafld="TITULO">
+    <BR>Subtítulo:<SPAN datasrc="#xmlLivros" datafld="SUBTITULO"></SPAN>
+    <BR>Categoria:<SPAN datasrc="#xmlLivros" datafld="CATEGORIA"></SPAN>
+    <BR>Autor:<SPAN datasrc="#xmlLivros" datafld="AUTOR"></SPAN>
+    <BR>ISBN:<SPAN datasrc="#xmlLivros" datafld="ISBN"></SPAN>
+    <BR>
+
+    <INPUT type=button onClick='movePrevious();' value='Anterior'>
+    <INPUT type=button onClick='moveNext();' value='Próximo'>
+    <SCRIPT language='JavaScript'>
+      function moveNext()
+      {
+        x=xmlLivros.recordset;
+        if (x.absoluteposition < x.recordcount)
+        {
+          x.movenext();
+        }
+      }
+      
+      function movePrevious()
+      {
+        x=xmlLivros.recordset;
+        if (x.absoluteposition > 1)
+        {
+          x.moveprevious();
+        }
+      }
+    </SCRIPT>
+    
+    <!-- Vinculando uma tabela à fonte de dados XML -->
+    <B>Tabela que exibe todos os registros:</B><BR>
+    <TABLE datasrc="#xmlLivros" border="1">
+      <THEAD>
+        <TH>Título</TH>
+        <TH>Subtítulo</TH>
+        <TH>Categoria</TH>
+        <TH>Autor</TH>
+        <TH>ISBN</TH>
+      </THEAD>
+      <TR align="left">
+        <TD><SPAN datafld="TITULO"></SPAN></TD>
+        <TD><SPAN datafld="SUBTITULO"></SPAN></TD>
+        <TD><SPAN datafld="CATEGORIA"></SPAN></TD>
+        <TD><SPAN datafld="AUTOR"></SPAN></TD>
+        <TD><SPAN datafld="ISBN"></SPAN></TD>
+      </TR>
+    </TABLE>
+    
+  </BODY>
+</HTML>

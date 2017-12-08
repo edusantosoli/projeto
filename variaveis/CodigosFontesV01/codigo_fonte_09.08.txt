@@ -1,0 +1,14 @@
+     var conhecimentos = document.forms["meuForm"].elements['CAMPO_CONHECIMENTOS[]'];     
+     var conhecimentosMarcados = 0;
+     for (i=0; i<conhecimentos.length; i++)
+     {
+      if(conhecimentos[i].checked == TRUE)
+       {
+         conhecimentosMarcados++;
+       }
+     }
+     if(conhecimentosMarcados != 2)
+     {
+       alert("É necessário marcar 2 conhecimentos.");
+       return FALSE;
+     }

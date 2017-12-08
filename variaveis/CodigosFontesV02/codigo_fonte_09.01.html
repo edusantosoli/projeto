@@ -1,0 +1,34 @@
+<HTML>
+  <HEAD>
+    <TITLE>EXEMPLO - Formulários</TITLE>
+  </HEAD>
+  <BODY>
+  
+    <FORM method="POST" action="?action=save" name="meuForm">
+    Nome:       <INPUT type=TEXT  name=CAMPO_NOME>
+    <BR>Idade:  <INPUT type=TEXT  name=CAMPO_IDADE>
+    <BR>E-mail: <INPUT type=TEXT  name=CAMPO_EMAIL>
+    
+    <BR>Sexo:   <INPUT type=RADIO name=CAMPO_SEXO value="M">Masculino
+                <INPUT type=RADIO name=CAMPO_SEXO value="F">Feminino
+                
+    <BR>Curso:  <SELECT name=CAMPO_CURSO>
+                  <OPTION selected>Selecione...</OPTION>
+                  <OPTION>Ciência da Computação</OPTION>
+                  <OPTION>Bacharelado em Informática</OPTION>
+                  <OPTION>Engenharia da Computação</OPTION>
+                </SELECT>
+                
+    <BR>Conhecimentos:
+    <INPUT type=CHECKBOX name=CAMPO_CONHECIMENTOS[] value="Word">Microsoft Word
+    <INPUT type=CHECKBOX name=CAMPO_CONHECIMENTOS[] value="HTML">HTML
+    <INPUT type=CHECKBOX name=CAMPO_CONHECIMENTOS[] value="JS">JavaScript
+    <INPUT type=CHECKBOX name=CAMPO_CONHECIMENTOS[] value="PHP">PHP
+    
+    <BR>
+    <INPUT type=RESET  value="Limpar">
+    <INPUT type=SUBMIT value="Enviar">
+    </FORM>
+    
+  </BODY>
+</HTML>

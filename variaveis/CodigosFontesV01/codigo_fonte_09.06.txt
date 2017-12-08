@@ -1,0 +1,15 @@
+      var campo_sexo = document.forms["meuForm"].CAMPO_SEXO;
+      var sexo = FALSE;
+      for (i=0; i<campo_sexo.length; i++)
+      {
+        if(campo_sexo[i].checked == TRUE)
+        {
+          sexo = campo_sexo[i].value;
+          break;
+        }
+      }
+      if(sexo == FALSE)
+      {
+        alert("O campo 'Sexo' deve ser preenchido.");
+        return FALSE;
+      }

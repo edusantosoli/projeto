@@ -1,0 +1,6 @@
+    $sexo = $_POST["CAMPO_SEXO"];
+    if($sexo != "M" && $sexo != "F")
+    {
+      echo("O campo 'Sexo' deve ser preenchido.");
+      $formValid = FALSE;
+    }

@@ -1,0 +1,5 @@
+Caro leitor, dependendo da versão da impressão do livro adquirido, 
+poderão haver pequenas diferenças nos códigos-fontes apresentados.
+
+Por este motivo, será disponibilizado os códigos-fontes de ambas
+as impressões neste arquivo.

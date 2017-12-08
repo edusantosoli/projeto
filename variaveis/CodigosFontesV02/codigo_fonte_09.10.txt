@@ -1,0 +1,6 @@
+    $tamanho_nome = strlen($_POST["CAMPO_NOME"]);
+    if($tamanho_nome < 5 || $tamanho_nome > 64)
+    {
+      echo("O campo 'Nome' deve ter entre 5 e 64 caracteres.".$tamanho_nome);
+      $formValid = FALSE;
+    }

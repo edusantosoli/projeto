@@ -1,0 +1,28 @@
+
+      <TR align="left" onclick="showThisRegister(this)">
+
+    <!-- Exibindo dados do registro clicado na tabela anterior -->
+    <B>Tabela que exibe os dados do registro clicado na tabela acima:</B><BR>
+    <TABLE border="1">
+      <TR align="left"><TH>Título:    </TH><TD id="TD_TITULO"></TD></TR>
+      <TR align="left"><TH>Subtítulo: </TH><TD id="TD_SUBTITULO"></TD></TR>
+      <TR align="left"><TH>Categoria: </TH><TD id="TD_CATEGORIA"></TD></TR>
+      <TR align="left"><TH>Autor: </TH><TD id="TD_AUTOR"></TD></TR>
+      <TR align="left"><TH>ISBN: </TH><TD id="TD_ISBN"></TD></TR>
+    </TABLE>
+    <BR>
+    
+    <SCRIPT language='JavaScript'>
+      function showThisRegister(field)
+      {
+        var row = field.rowIndex;
+        xmlLivros.recordset.absoluteposition = row;
+        
+        TD_TITULO.innerHTML    = xmlLivros.recordset("TITULO");
+        TD_SUBTITULO.innerHTML = xmlLivros.recordset("SUBTITULO");
+        TD_CATEGORIA.innerHTML = xmlLivros.recordset("categoria");
+        TD_AUTOR.innerHTML     = xmlLivros.recordset("AUTOR");
+        TD_ISBN.innerHTML      = xmlLivros.recordset("ISBN");
+      }
+    </SCRIPT>
+

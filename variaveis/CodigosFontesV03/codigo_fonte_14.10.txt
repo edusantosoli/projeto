@@ -1,0 +1,11 @@
+    /* CÓDIGO DE VOTAR */
+    
+    if(isset($_POST["VOTO"]) && $_POST["VOTO"] != "")
+    {
+      $sql = "UPDATE RESPOSTAS SET VOTOS = VOTOS + 1 WHERE ID = ".$_POST["VOTO"];
+      $result = mysqli_query($link, $sql);
+    }
+    
+    header("location: ?action=resultados");
+  
+

@@ -1,0 +1,33 @@
+
+    <!-- Exibindo e navegando pelos registros por formulário -->
+    <B>Formulário que navega pelos registros:</B><BR>
+    Título:
+    <INPUT type=text name='teste' datasrc="#xmlLivros" datafld="TITULO">
+    <BR>Subtítulo:<SPAN datasrc="#xmlLivros" datafld="SUBTITULO"></SPAN>
+    <BR>Categoria:<SPAN datasrc="#xmlLivros" datafld="CATEGORIA"></SPAN>
+    <BR>Autor:<SPAN datasrc="#xmlLivros" datafld="AUTOR"></SPAN>
+    <BR>ISBN:<SPAN datasrc="#xmlLivros" datafld="ISBN"></SPAN>
+    <BR>
+
+    <INPUT type=button onClick='movePrevious();' value='Anterior'>
+    <INPUT type=button onClick='moveNext();' value='Próximo'>
+    <SCRIPT language='JavaScript'>
+      function moveNext()
+      {
+        x=xmlLivros.recordset;
+        if (x.absoluteposition < x.recordcount)
+        {
+          x.movenext();
+        }
+      }
+      
+      function movePrevious()
+      {
+        x=xmlLivros.recordset;
+        if (x.absoluteposition > 1)
+        {
+          x.moveprevious();
+        }
+      }
+    </SCRIPT>
+

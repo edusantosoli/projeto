@@ -1,0 +1,7 @@
+      var email = document.forms["meuForm"].CAMPO_EMAIL.value;
+      if(email.length < 5  || email.length > 128 || 
+         email.indexOf('@') == -1 || email.indexOf('.') == -1)
+      {
+        alert("O campo 'E-mail' deve ter preenchido corretamente.");
+        return FALSE;
+      }

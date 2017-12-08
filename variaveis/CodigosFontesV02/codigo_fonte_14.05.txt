@@ -1,0 +1,23 @@
+    /* CÓDIGO DE REMOVER PRODUTO DO CARRINHO - SESSÃO  */
+    session_start();
+    $productId = $_REQUEST["id"];
+  
+    // Verifica se o carrinho existe
+    if(isset($_SESSION["CARRINHO"]))
+    {
+      // Verifica se há alguma unidade do produto no carrinho
+      if(isset($_SESSION["CARRINHO"][$productId]))
+      {
+        // Se existir, remove uma unidade
+        $_SESSION["CARRINHO"][$productId]--;
+        
+        // Remove as referências do produto se não tiver mais nenhum
+        if($_SESSION["CARRINHO"][$productId] == 0)
+          unset($_SESSION["CARRINHO"][$productId]);
+          
+        // Reseta o carrinho se estiver vazio
+        if(sizeof($_SESSION["CARRINHO"]) == 0)
+          unset($_SESSION["CARRINHO"]);
+      }
+    }
+    header("location: ?action=visualizar");

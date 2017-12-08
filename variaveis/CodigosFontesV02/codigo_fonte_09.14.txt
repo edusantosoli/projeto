@@ -1,0 +1,6 @@
+    $curso = $_POST["CAMPO_CURSO"];
+    if($curso == "" || $curso == "Selecione...")
+    {
+      echo("O campo 'Curso' deve ser preenchido.");
+      $formValid = FALSE;
+    }

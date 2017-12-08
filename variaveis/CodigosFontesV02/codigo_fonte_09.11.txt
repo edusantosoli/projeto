@@ -1,0 +1,6 @@
+    $idade = (int)$_POST["CAMPO_IDADE"];
+    if(is_NaN($idade) || $idade < 4 || $idade > 120)
+    {
+      echo("O campo 'Idade' deve ter preenchido corretamente.");
+      $formValid = FALSE;
+    }
